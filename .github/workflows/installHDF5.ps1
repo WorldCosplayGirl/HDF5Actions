@@ -27,7 +27,8 @@ function InstallHDF5() {
 
 function ModifyEnvironmentVariable() {
     $varName = "HDF5_DIR"
-    $varValue = "C:\Program Files\HDF_Group\HDF5\1.12.1\cmake"
+    #$varValue = "C:\Program Files\HDF_Group\HDF5\1.12.1\cmake"
+	$varValue = "C:\Program Files\HDF_Group\HDF5\1.12.1\share\cmake\"
     #Write-Host "varName = $varName"
     #Write-Host "varValue = $varValue"
     ModifyMachineEnvironmentVariable $varName $varValue
