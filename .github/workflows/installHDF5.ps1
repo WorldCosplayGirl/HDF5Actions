@@ -18,6 +18,8 @@ function InstallHDF5() {
     ModifyEnvironmentVariable	
 	$Env:path = [environment]::GetEnvironmentvariable("path", [System.EnvironmentVariableTarget]::Machine)
 	Write-Host "Path EnvironmentVariable 2 is $Env:path"
+	$varName = [environment]::GetEnvironmentvariable("HDF5_DIR", [System.EnvironmentVariableTarget]::Machine)
+	Write-Host "HDF5_DIR Environment Variable is $varName"
 }
 
 function ModifyEnvironmentVariable() {
