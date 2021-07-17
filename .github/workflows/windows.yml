@@ -37,6 +37,8 @@ jobs:
           Write-Host "set myvar.........."
           $myVar = [environment]::GetEnvironmentvariable("path", [System.EnvironmentVariableTarget]::Machine)
           Write-Host "myVar is $myVar"
+          $myVarName = [environment]::GetEnvironmentvariable("HDF5_DIR", [System.EnvironmentVariableTarget]::Machine)
+	      Write-Host "HDF5_DIR Environment Variable is $myVarName"
           cmake --version
           cmake -DCMAKE_INSTALL_PREFIX=${{ github.workspace }} ../
           ls
