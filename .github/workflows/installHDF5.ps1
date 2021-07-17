@@ -13,6 +13,9 @@ function InstallHDF5() {
 	Write-Host "ls $HDF5_InstallDir"
 	ls $HDF5_InstallDir
 	Write-Host "-------------------------------------------"
+	$Program_Dir = "C:/Program Files"
+	Write-Host "ls $Program_Dir"
+	ls $Program_Dir
 	Write-Host ""
 	Write-Host "Path EnvironmentVariable 1 is $Env:path"
     ModifyEnvironmentVariable	
