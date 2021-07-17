@@ -34,6 +34,9 @@ jobs:
           ls
           mkdir build
           cd build
+          Write-Host "set myvar.........."
+          $myVar = [environment]::GetEnvironmentvariable("path", [System.EnvironmentVariableTarget]::Machine)
+          Write-Host "myVar is $myVar"
           cmake --version
           cmake -DCMAKE_INSTALL_PREFIX=${{ github.workspace }} ../
           ls
