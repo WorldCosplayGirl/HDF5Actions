@@ -9,9 +9,11 @@ function InstallHDF5() {
     Write-Host "Installing HDF5-1.12.1..."
     Start-Process -FilePath msiexec.exe -ArgumentList "/quiet /qn /i HDF5-1.12.1-win64.msi" -Wait
     Write-Host "HDF5-1.12.1 installation complete"
-	$HDF5_InstallDir = "C:/Program Files/HDF_Group/HDF5"
+	$HDF5_InstallDir = "C:/Program Files/HDF_Group/HDF5/1.12.1"
 	Write-Host "ls $HDF5_InstallDir"
 	ls $HDF5_InstallDir
+	Write-Host "-------------------------------------------"
+	Write-Host ""
 	Write-Host "Path EnvironmentVariable 1 is $Env:path"
     ModifyEnvironmentVariable	
 	$Env:path = [environment]::GetEnvironmentvariable("path", [System.EnvironmentVariableTarget]::Machine)
