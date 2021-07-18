@@ -34,21 +34,8 @@ jobs:
           ls
           mkdir build
           cd build
-          Write-Host "set myvar.........."
-          $myVar = [environment]::GetEnvironmentvariable("path", [System.EnvironmentVariableTarget]::Machine)
-          Write-Host "myVar is $myVar"
-          $varName = [environment]::GetEnvironmentvariable("HDF5_DIR", [System.EnvironmentVariableTarget]::Machine)
-          Write-Host "HDF5_DIR Environment Variable is $varName"
-          Write-Host "env:HDF5_DIR Environment Variable is $env:HDF5_DIR"
           $Env:HDF5_DIR = [environment]::GetEnvironmentvariable("HDF5_DIR", [System.EnvironmentVariableTarget]::Machine)
-          Write-Host "env:HDF5_DIR Environment Variable is $env:HDF5_DIR"
-          Write-Host "+++++++++++++++++++++++++++++++++++++++"
-          Write-Host "env:path is $env:path"
-          Write-Host "+++++++++++++++++++++++++++++++++++++++"
           $Env:path = [environment]::GetEnvironmentvariable("path", [System.EnvironmentVariableTarget]::Machine)
-          Write-Host "**************************************************"
-          Write-Host "env:path is $env:path"
-          Write-Host "**************************************************"
           cmake --version
           cmake -DCMAKE_INSTALL_PREFIX=${{ github.workspace }} ../
           ls
@@ -66,4 +53,4 @@ jobs:
           $Env:path = [environment]::GetEnvironmentvariable("path", [System.EnvironmentVariableTarget]::Machine)
           $Env:path = $Env:Path + ";${{ github.workspace }}/bin"          
           ./HDF5Prj.exe
-        shell: pwsh        
+        shell: pwsh
