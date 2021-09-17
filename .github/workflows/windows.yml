@@ -40,14 +40,6 @@ jobs:
           cmake -DCMAKE_INSTALL_PREFIX=${{ github.workspace }} ../
           ls
         shell: pwsh
-      - name: zip HDF5
-        run: |
-          cd ${{ github.workspace }}
-          ls
-          $zippsfile = "${{ github.workspace }}/.github/workflows/zipHDF5.ps1"
-          #& $zippsfile
-          & $zippsfile
-        shell: pwsh
       - name: CMake Install
         env:
           prefix: ${{ github.workspace }}
@@ -61,6 +53,15 @@ jobs:
           $Env:path = [environment]::GetEnvironmentvariable("path", [System.EnvironmentVariableTarget]::Machine)
           $Env:path = $Env:Path + ";${{ github.workspace }}/bin"          
           ./HDF5Prj.exe
+        shell: pwsh
+      - name: zip HDF5
+        run: |
+          cd ${{ github.workspace }}
+          ls
+          $zippsfile = "${{ github.workspace }}/.github/workflows/zipHDF5.ps1"
+          #& $zippsfile
+          & $zippsfile
+          cd ${{ github.workspace }}/bin
         shell: pwsh
       - name: Create Release
         id: create_release
